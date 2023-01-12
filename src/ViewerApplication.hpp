@@ -40,6 +40,7 @@ private:
   bool m_hasUserCamera = false;
 
   bool loadGltfFile(tinygltf::Model &model);
+  std::vector<GLuint> createBufferObjects( const tinygltf::Model &model);
 
   fs::path m_OutputPath;
 
