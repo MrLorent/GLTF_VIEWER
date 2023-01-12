@@ -1,5 +1,7 @@
 #pragma once
 
+#include <tiny_gltf.h>
+
 #include "utils/GLFWHandle.hpp"
 #include "utils/cameras.hpp"
 #include "utils/filesystem.hpp"
@@ -34,8 +36,10 @@ private:
   std::string m_vertexShader = "forward.vs.glsl";
   std::string m_fragmentShader = "normals.fs.glsl";
 
-  bool m_hasUserCamera = false;
   Camera m_userCamera;
+  bool m_hasUserCamera = false;
+
+  bool loadGltfFile(tinygltf::Model &model);
 
   fs::path m_OutputPath;
 
