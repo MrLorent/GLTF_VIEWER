@@ -81,6 +81,16 @@ std::vector<GLuint> ViewerApplication::createBufferObjects( const tinygltf::Mode
     return buffer_objects;
 }
 
+std::vector<GLuint> ViewerApplication::createVertexArrayObjects( const tinygltf::Model &model, const std::vector<GLuint> &bufferObjects, std::vector<VaoRange> & meshIndexToVaoRange)
+{
+    std::vector<GLuint> vao;
+
+    for(size_t mesh_idx = 0; mesh_idx < model.meshes.size(); ++mesh_idx)
+    {
+        //vao.resize(static_cast<size_t>(vao.size() + model.meshes[mesh_idx]))
+    }
+}
+
 int ViewerApplication::run()
 {
   // Loader shaders
@@ -122,6 +132,8 @@ int ViewerApplication::run()
   std::vector<GLuint> buffer_objects = createBufferObjects(model);
 
   // TODO Creation of Vertex Array Objects
+  std::vector<VaoRange> mesh_index_to_vao_range;
+  std::vector<GLuint> vao = createVertexArrayObjects(model, buffer_objects, mesh_index_to_vao_range);
 
   // Setup OpenGL state for rendering
   glEnable(GL_DEPTH_TEST);
